@@ -1,0 +1,21 @@
+#Firstall, read phenotype
+variable <- read.csv("",sep="")
+
+#Fisrt, convert to chisq from pvalue
+qc <- qchisq(variable$P,1,lower.tail=FALSE)
+
+#Second, investigating of median chisq
+median(qc)
+
+#Thrild, Calculation of lambda
+median(qc)/0.456
+
+#Foruth, Estimation of adjusted chisq the each individaul SNPs
+adj_qc <- qc/(median(qc)/0.456)
+
+#Fiveth, Convert to pvalue from chisq
+adj_p <- pchisq(adj_qc,1,lower.tail=FALSE)
+
+#Sixth, attach the ajd_P
+variable[P] <- adj_P
+
