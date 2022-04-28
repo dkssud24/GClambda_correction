@@ -17,5 +17,5 @@ adj_qc <- qc/(median(qc)/0.456)
 adj_p <- pchisq(adj_qc,1,lower.tail=FALSE)
 
 #Sixth, attach the ajd_P
-variable[P] <- adj_P
+variable["P"] <- adj_p
 
